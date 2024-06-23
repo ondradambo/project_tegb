@@ -1,8 +1,8 @@
 import { RegistrationPage } from "../../page-objects/project-tegb/registration_page";
 import { faker } from "@faker-js/faker";
 
-describe("Registration tests", () => {
-  it("User registration FE", () => {
+describe("Registration Tests", () => {
+  it("User Registration Test", () => {
     const username = faker.internet.userName();
     const password = faker.internet.password();
     const email = faker.internet.email();
