@@ -1,7 +1,8 @@
+import { DashboardPage } from "../../page-objects/project-tegb/dashboard_page";
 import { LoginPage } from "../../page-objects/project-tegb/login_page";
 import { faker } from "@faker-js/faker";
 
-describe("Add Account Tests", () => {
+describe("Add Account and Logout Tests", () => {
   /* Zbytečný test --> špatně pochopeno přidání účtu (= ve smyslu přihlašovacího)  
   let username;
   let password;
@@ -47,5 +48,14 @@ it("Add new account via API", () => {
     cy.intercept("/tegb/accounts", {
       fixture: "mock_accounts.json",
     }).as("accounts_api");
+  });
+
+  it("Check Account and its Balance is Visible", () => {
+    cy.get('[data-testid="account-type"]').should("be.visible");
+    cy.get('[data-testid="account-balance"]').should("be.visible");
+  });
+
+  it("Logout Test", () => {
+    new DashboardPage().clickLogoutButton();
   });
 });
