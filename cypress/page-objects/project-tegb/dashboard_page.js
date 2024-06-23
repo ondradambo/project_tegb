@@ -1,3 +1,5 @@
+import { LoginPage } from "./login_page";
+
 export class DashboardPage {
   constructor() {
     this.url = "https://tegb-frontend-88542200c6db.herokuapp.com/dashboard";
@@ -13,6 +15,7 @@ export class DashboardPage {
     this.profileDetailsEmail = "div[data-testid='email']";
     this.profileDetailsPhone = "div[data-testid='phone']";
     this.profileDetailsAge = "div[data-testid='age']";
+    this.logoutButton = "button[class='logout-link']";
   }
 
   openDashboardPage() {
@@ -53,5 +56,10 @@ export class DashboardPage {
   saveChangesButton() {
     cy.get(this.saveChangesButton).click();
     return new DashboardPage();
+  }
+
+  clickLogoutButton() {
+    cy.get(this.logoutButton).click();
+    return new LoginPage();
   }
 }
