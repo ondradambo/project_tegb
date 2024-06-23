@@ -7,8 +7,12 @@ export class DashboardPage {
     this.emailInput = "input[data-testid='chage-email-input']";
     this.phoneInput = "input[data-testid='chage-phone-input']";
     this.ageInput = "input[data-testid='chage-age-input']";
-    // Save-changes-button nefunguje, použít místo něj Edit-profile-button
     this.saveChangesButton = "button[data-testid='save-changes-button']";
+    this.profileDetailsName = "div[data-testid='name']";
+    this.profileDetailsSurname = "div[data-testid='surname']";
+    this.profileDetailsEmail = "div[data-testid='email']";
+    this.profileDetailsPhone = "div[data-testid='phone']";
+    this.profileDetailsAge = "div[data-testid='age']";
   }
 
   openDashboardPage() {
@@ -46,8 +50,8 @@ export class DashboardPage {
     return this;
   }
 
-  clickEditProfileButton() {
-    cy.get(this.editProfileButton).click();
+  saveChangesButton() {
+    cy.get(this.saveChangesButton).click();
     return new DashboardPage();
   }
 }
