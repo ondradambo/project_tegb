@@ -6,6 +6,8 @@ export class LoginPage {
     this.usernameInput = "input[data-testid='username-input']";
     this.passwordInput = "input[data-testid='password-input']";
     this.loginButton = "button[data-testid='submit-button']";
+    cy.intercept("/tegb/profile").as("login_api");
+    cy.intercept("/tegb/accounts").as("accounts_api");
   }
 
   openLoginPage() {
@@ -25,6 +27,8 @@ export class LoginPage {
 
   clickLoginButton() {
     cy.get(this.loginButton).click();
+    cy.wait("@login_api");
+    cy.wait("@accounts_api");
     return new DashboardPage();
   }
 }
