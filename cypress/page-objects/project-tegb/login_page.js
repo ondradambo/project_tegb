@@ -7,9 +7,7 @@ export class LoginPage {
     this.passwordInput = "input[data-testid='password-input']";
     this.loginButton = "button[data-testid='submit-button']";
     cy.intercept("/tegb/profile").as("login_api");
-    cy.intercept("/tegb/accounts", {
-      fixture: "mock_accounts.json",
-    }).as("accounts_api");
+    cy.intercept("/tegb/accounts").as("accounts_api");
   }
 
   openLoginPage() {
